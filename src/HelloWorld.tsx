@@ -5,8 +5,6 @@ export interface Person {
     age?:number;
 }
 
-
-
 export const HelloWorld = ({name,age}:Person) => {
     return (
         <h1 className="text-3xl font-bold underline">
