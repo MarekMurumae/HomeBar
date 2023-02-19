@@ -8,7 +8,7 @@ export interface Person {
 export const HelloWorld = ({name,age}:Person) => {
     return (
         <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+            Hello world!, {name}
+        </h1>
     )
 }
