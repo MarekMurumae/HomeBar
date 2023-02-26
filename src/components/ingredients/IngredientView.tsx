@@ -27,10 +27,10 @@ const ingredients: Ingredient[] = [
 
 export const IngredientView = () => {
   return (
-    <>
+    <div className="flex flex-wrap">
       {ingredients.map((i: Ingredient, key: number) => (
         <IngredientCard ingredient={i} key={key} />
       ))}
-    </>
+    </div>
   );
 };
