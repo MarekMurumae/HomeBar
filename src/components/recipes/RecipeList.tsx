@@ -65,7 +65,7 @@ const defaultRecipes: Recipe[] = [
         imageUrl:
             "https://static.whiskybase.com/storage/whiskies/1/5/863/149434-big.jpg",
         amount: 2,
-        measurementUnit: "litre",
+        measurementUnit: "litres",
         },
     ],
     steps:"1. Open Bottle 2. Chug"
