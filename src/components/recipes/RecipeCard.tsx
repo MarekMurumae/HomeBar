@@ -7,8 +7,7 @@ interface ComponentProps {
   }
 
 export const RecipeCard = ({ recipe }: ComponentProps) => {
-    const [ingredients] =
-    useState<Ingredient[]>(recipe.ingredients);
+    const [ingredients] = useState<Ingredient[]>(recipe.ingredients);
 
     return (
         <div className="bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700 dark:bg-gray-800 ">
@@ -23,9 +22,7 @@ export const RecipeCard = ({ recipe }: ComponentProps) => {
             {recipe.name}
           </h5>
           <div className="flex flex-col mb-3 font-bold text-gray-700 dark:text-gray-400">
-            {ingredients.map((Ingredient) => (
-                <p>{Ingredient.name} - {Ingredient.amount} {Ingredient.measurementUnit}</p>
-            ))} 
+            {ingredients.map((Ingredient) => <p>{Ingredient.name} - {Ingredient.amount} {Ingredient.measurementUnit}</p>)} 
           </div>
           <p className="mb-3 font-bold text-gray-900 dark:text-white">
             Recipe:

@@ -4,7 +4,7 @@ import { RecipeCard } from "./RecipeCard"
 
 
 export interface prop {
-    recipe:Recipe;
+    recipe: Recipe;
 }
 
 const defaultRecipes: Recipe[] = [
