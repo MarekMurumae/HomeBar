@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/HomeBar/static/css/main.4acb7359.css",
+    "main.js": "/HomeBar/static/js/main.ba75cbaa.js",
+    "index.html": "/HomeBar/index.html",
+    "main.4acb7359.css.map": "/HomeBar/static/css/main.4acb7359.css.map",
+    "main.ba75cbaa.js.map": "/HomeBar/static/js/main.ba75cbaa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4acb7359.css",
+    "static/js/main.ba75cbaa.js"
+  ]
+}
