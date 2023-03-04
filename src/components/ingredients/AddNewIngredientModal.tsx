@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { AddIcon } from "../../icons/AddIcon";
 import { CrossIcon } from "../../icons/CrossIcon";
-import { SearchTextField } from "../common/SearchTextField";
+import { AutocompleteSearch } from "../common/AutocompleteSearch";
 import { Ingredient } from "./ingredient";
+import { IngredientBlock } from "./IngredientBlock";
 import { ingredientsDB } from "./ingredients";
 
 interface ComponentProps {
@@ -12,7 +12,6 @@ interface ComponentProps {
 }
 
 const db = ingredientsDB;
-console.log(db);
 
 export const AddNewIngredientModal = ({
   userIngredients,
@@ -26,6 +25,13 @@ export const AddNewIngredientModal = ({
     setSelectedIngredients((selectedIngredients) =>
       selectedIngredients.concat(i)
     );
+  };
+
+  const onDelete = (itemToBeDeleted: Ingredient) => {
+    let filteredArray = selectedIngredients.filter(
+      (item) => item !== itemToBeDeleted
+    );
+    setSelectedIngredients(filteredArray);
   };
 
   const onSave = () => {
@@ -51,25 +57,19 @@ export const AddNewIngredientModal = ({
               </button>
             </div>
             {/*body*/}
-            <div className="relative p-6 flex-auto">
-              <>
-                <div className="my-4 text-slate-500 text-lg leading-relaxed">
-                  <SearchTextField placeholder="Search for ingredients" />
-                  Search our database for different ingredients to add to your
-                  inventory
-                </div>
-                <ul>
-                  {db.map((i, key) => (
-                    <li>
-                      <IngredientBlock
-                        ingredient={i}
-                        onAddIngredient={onAddIngredient}
-                        key={key}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </>
+            <div className="relative p-6 flex-auto text-slate-500 text-lg leading-relaxed">
+              <p className="py-4">
+                Search our database for different ingredients to add to your
+                inventory
+              </p>
+              <AutocompleteSearch
+                placeholder="Search for ingredients"
+                ingredients={db}
+                addIngredient={onAddIngredient}
+              />
+              {selectedIngredients.map((i: Ingredient) => (
+                <IngredientBlock ingredient={i} deletable onDelete={onDelete} />
+              ))}
             </div>
             {/*footer*/}
             <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
@@ -93,33 +93,5 @@ export const AddNewIngredientModal = ({
       </div>
       <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
     </>
-  );
-};
-
-interface IngredientBlockProps {
-  ingredient: Ingredient;
-  onAddIngredient: (i: Ingredient) => void;
-}
-
-const IngredientBlock = ({
-  ingredient,
-  onAddIngredient,
-}: IngredientBlockProps) => {
-  const handleAdd = () => {
-    onAddIngredient(ingredient);
-  };
-
-  return (
-    <div className="flex flex-row justify-between py-4">
-      <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-        <span className="font-medium text-gray-600 dark:text-gray-300">
-          {ingredient.name[0]}
-        </span>
-      </div>
-      <p>{ingredient.name}</p>
-      <button onClick={handleAdd} className="">
-        <AddIcon />
-      </button>
-    </div>
   );
 };
