@@ -48,7 +48,7 @@ export const AddNewIngredientModal = ({
             {/*header*/}
             <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
               <button
-                className="p-1 ml-auto border-0 opacity-5 float-right"
+                className="p-1 ml-auto border-0 opacity-5 float-right hover:rotate-90 ease-linear transition-all duration-150"
                 onClick={closeModal}
               >
                 <span>

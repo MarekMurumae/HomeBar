@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { EmptyCard } from "../common/EmptyCard";
 import { AddNewIngredientModal } from "./AddNewIngredientModal";
 import { Ingredient } from "./ingredient";
 import { IngredientCard } from "./IngredientCard";
@@ -9,7 +10,6 @@ export const IngredientView = () => {
 
   const addIngredientsToInventory = (newIngredients: Ingredient[]) => {
     setIngredients((ingredients) => ingredients.concat(newIngredients));
-    //setIngredients([...ingredients, i]);
   };
 
   const onDelete = (itemToBeDeleted: Ingredient) => {
@@ -17,17 +17,23 @@ export const IngredientView = () => {
     setIngredients(filteredArray);
   };
 
+  const handleModalOpen = () => {
+    setShowAddModal(true);
+  };
+
   return (
     <>
       <div className="flex flex-col items-center">
-        <button
-          type="button"
-          onClick={() => setShowAddModal(true)}
-          className="max-w-xs text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-        >
-          Add
-        </button>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-initial flex-wrap gap-4">
+          {ingredients.length == 0 ? (
+            <EmptyCard
+              title="Your inventory seems to be empty!"
+              body="Click the '+' button below to start adding ingredients to your inventory."
+              handleClick={handleModalOpen}
+            />
+          ) : (
+            <EmptyCard handleClick={handleModalOpen} />
+          )}
           {ingredients.map((i: Ingredient, key: number) => (
             <IngredientCard ingredient={i} key={key} onDelete={onDelete} />
           ))}
