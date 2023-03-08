@@ -23,8 +23,8 @@ export const IngredientView = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center">
-        <div className="flex flex-initial flex-wrap gap-4">
+      <div className="container mx-auto">
+        <div className="flex flex-wrap -mx-4">
           {ingredients.length == 0 ? (
             <EmptyCard
               title="Your inventory seems to be empty!"

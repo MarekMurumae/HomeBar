@@ -11,26 +11,44 @@ export const IngredientCard = ({ ingredient, onDelete }: ComponentProps) => {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="flex flex-col rounded-lg bg-white shadow-lg dark:bg-neutral-700 md:max-w-xl md:flex-row">
-        <img
-          className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-          src={ingredient.imageUrl}
-          alt={`Cocktail ingredient: ${ingredient.name}`}
-        />
-        <div className="flex flex-col justify-start p-6">
-          <h5 className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-            {ingredient.name}
-          </h5>
-          <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-            This is a description of that ingredient. I will replace this text
-            with something better. For now, it will act as a placeholder text.
-          </p>
-          <p className="text-xs text-neutral-500 dark:text-neutral-300">
-            {ingredient.amount}/{ingredient.measurementUnit}
-          </p>
+    <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+      <button
+        onClick={handleDelete}
+        className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden"
+      >
+        <div className="relative pb-48 overflow-hidden">
+          <img
+            className="absolute inset-0 h-full w-full object-cover"
+            src={ingredient.imageUrl}
+            alt={`Image for ingredient ${ingredient.name}`}
+          />
         </div>
-      </div>
+        <div className="p-4">
+          <span className="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+            Running empty
+          </span>
+          <h2 className="mt-2 mb-2  font-bold">{ingredient.name}</h2>
+          <p className="text-sm">
+            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec
+            ullamcorper nulla non metus auctor fringilla.
+          </p>
+          <div className="mt-3 justify-center flex items-center">
+            <span className="font-bold text-md">{ingredient.amount}</span>&nbsp;
+            <span className="text-sm font-semibold">
+              {ingredient.measurementUnit}
+            </span>
+          </div>
+        </div>
+        <div className="p-4 border-t border-b text-xs text-gray-700">
+          <span className="flex items-center mb-1">
+            <i className="far fa-clock fa-fw mr-2 text-gray-900"></i> 3 Tage
+          </span>
+          <span className="flex items-center">
+            <i className="far fa-address-card fa-fw text-gray-900 mr-2"></i>{" "}
+            Ermäßigung mit Karte
+          </span>
+        </div>
+      </button>
     </div>
   );
 };

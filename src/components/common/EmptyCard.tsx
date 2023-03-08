@@ -8,22 +8,15 @@ interface ComponentProps {
 
 export const EmptyCard = ({ title, body, handleClick }: ComponentProps) => {
   return (
-    <div className="flex justify-center">
-      <div className="flex flex-col rounded-lg bg-white shadow-lg dark:bg-neutral-700 md:max-w-xl md:flex-row">
-        <div className="flex flex-col justify-start p-6">
-          <h5 className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-            {title}
-          </h5>
-          <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-            {body}
-          </p>
-          <button onClick={handleClick} className="self-center">
-            <span>
-              <AddIcon />
-            </span>
-          </button>
-        </div>
-      </div>
+    <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4 grid content-center">
+      <a
+        onClick={handleClick}
+        className="justify-self-center c-card rounded-lg overflow-hidden hover:cursor-pointer"
+      >
+        <span>
+          <AddIcon />
+        </span>
+      </a>
     </div>
   );
 };
