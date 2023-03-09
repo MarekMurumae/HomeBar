@@ -1,6 +1,6 @@
 import { Ingredient } from "./ingredient";
 
-// hardcoded db
+// hardcoded db for ingredients
 
 export const ingredientsDB: Ingredient[] = [
   {
