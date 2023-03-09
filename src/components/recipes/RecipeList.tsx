@@ -11,7 +11,7 @@ export const RecipeList = () => {
   const [recipes] = useState<Recipe[]>(recipeDB);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="container mx-auto">
       <div className="flex flex-wrap -mx-4">
         {recipes.map((i: Recipe) => (
           <RecipeCard recipe={i} />
