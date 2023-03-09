@@ -16,6 +16,10 @@ const router = createBrowserRouter([
         element: <IngredientView />,
       },
       {
+        path: "/homeBar",
+        element: <IngredientView />,
+      },
+      {
         path: "/details/:ingredient",
         element: <IngredientView />,
       },
