@@ -3,7 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 export default function Root() {
     return (
       <div>
-        <div className="z-index: 1 bg-gray-800 flex flex-col ">
+        <div className="fixed w-full z-20 top-0 bg-gray-800 flex flex-col ">
                <ul className="list-reset flex flex-row md:flex-row text-center">
                   <li className="mr-3 flex-1">
                      <Link to="/HomeBar" className="block py-1 md:py-3 pl-1 align-middle no-underline hover:text-pink-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-pink-300 focus:border-pink-500">
@@ -17,7 +17,7 @@ export default function Root() {
                   </li>
                </ul>
          </div>
-         <div className="py-5">
+         <div className="py-16">
             <Outlet />
          </div>
       </div>
