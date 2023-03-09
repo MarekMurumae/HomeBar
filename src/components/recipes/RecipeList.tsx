@@ -12,7 +12,7 @@ export const RecipeList = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap -mx-4">
         {recipes.map((i: Recipe) => (
           <RecipeCard recipe={i} />
         ))}
