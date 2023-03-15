@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Recipe } from "./Recipe";
 import { RecipeCard } from "./RecipeCard";
-import { recipeDB } from "./Recipes"
+import { recipeDB } from "./Recipes";
 
 export interface prop {
   recipe: Recipe;

@@ -78,8 +78,7 @@ export const ingredientsDB: Ingredient[] = [
   {
     id: 9,
     name: "Cola",
-    imageUrl:
-      "https://bilyonaryo.com/wp-content/uploads/2022/08/coke.jpg",
+    imageUrl: "https://bilyonaryo.com/wp-content/uploads/2022/08/coke.jpg",
     amount: 2,
     measurementUnit: "litre(s)",
   },

@@ -5,6 +5,7 @@ import "./index.css";
 import Root from "./routes/Root";
 import { IngredientView } from "./components/ingredients/IngredientView";
 import { RecipeList } from "./components/recipes/RecipeList";
+import { IngredientsContext, IngredientsContextProvider } from "./context/IngredientsContext";
 
 const router = createHashRouter([
   {
@@ -36,6 +37,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <IngredientsContextProvider>
+      <RouterProvider router={router} />
+    </IngredientsContextProvider>
   </React.StrictMode>
 );

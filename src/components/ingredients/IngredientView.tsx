@@ -1,21 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { IngredientsContext } from "../../context/IngredientsContext";
 import { EmptyCard } from "../common/EmptyCard";
 import { AddNewIngredientModal } from "./AddNewIngredientModal";
 import { Ingredient } from "./ingredient";
 import { IngredientCard } from "./IngredientCard";
 
 export const IngredientView = () => {
-  const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+  const { ingredients, addIngredientsToInventory, onDelete } =
+    useContext(IngredientsContext);
   const [showAddModal, setShowAddModal] = useState(false);
-
-  const addIngredientsToInventory = (newIngredients: Ingredient[]) => {
-    setIngredients((ingredients) => ingredients.concat(newIngredients));
-  };
-
-  const onDelete = (itemToBeDeleted: Ingredient) => {
-    let filteredArray = ingredients.filter((item) => item !== itemToBeDeleted);
-    setIngredients(filteredArray);
-  };
 
   const handleModalOpen = () => {
     setShowAddModal(true);
