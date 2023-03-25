@@ -23,6 +23,7 @@ export const AutocompleteSearch = ({
 
   return (
     <ReactSearchAutocomplete
+      styling={{ zIndex: 10 }}
       items={ingredients}
       formatResult={formatResult}
       onSelect={handleOnSelect}

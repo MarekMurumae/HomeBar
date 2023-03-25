@@ -3,7 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 export default function Root() {
   return (
     <div>
-      <div className="fixed w-full z-20 top-0 bg-gray-800 flex flex-col ">
+      <div className="fixed w-full top-0 bg-gray-800 flex flex-col ">
         <ul className="list-reset flex flex-row md:flex-row text-center">
           <li className="mr-3 flex-1">
             <Link
